@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -855,7 +855,7 @@ GameObject:
   - component: {fileID: 202191472}
   - component: {fileID: 202191471}
   m_Layer: 5
-  m_Name: "Jos\xE9"
+  m_Name: "Jes\xFAs"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -877,7 +877,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -103, y: -335}
+  m_AnchoredPosition: {x: -103, y: -320}
   m_SizeDelta: {x: 194.7002, y: 27.0341}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &202191471
@@ -900,7 +900,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Implementaci\xF3n a STM32\n\nJes\xFAs"
+  m_text: "Implementaci\xF3n a De10 Nucleo\n\nJuan Felix"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 564e070f9ba50bd4d992887429d696a5, type: 2}
   m_sharedMaterial: {fileID: 3243693183527496888, guid: 564e070f9ba50bd4d992887429d696a5, type: 2}
@@ -3707,7 +3707,7 @@ GameObject:
   - component: {fileID: 1257589106}
   - component: {fileID: 1257589105}
   m_Layer: 5
-  m_Name: "Jes\xFAs"
+  m_Name: Juan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3752,7 +3752,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Dise\xF1o de M\xE1quina de Estados\n\nJuan"
+  m_text: "Dise\xF1o de M\xE1quina de Estados\n\nJes\xFAs Hernand\xE9z"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 564e070f9ba50bd4d992887429d696a5, type: 2}
   m_sharedMaterial: {fileID: 3243693183527496888, guid: 564e070f9ba50bd4d992887429d696a5, type: 2}
@@ -6029,7 +6029,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 7ae750731020e6a44bbf5dc1d863f56c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: d08ebcf05a5e3d737a292577fc84fb87, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d55dc26b060791c46b8eb60d173f1868, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -6145,7 +6145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1989716434
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6358,7 +6358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2042262368
 RectTransform:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI; 
+using UnityEngine.SceneManagement;
+
 
 using System.IO.Ports; //Libreria para comunicacion serial
 
@@ -33,7 +35,24 @@ public class CarController : MonoBehaviour
     public string textValue2;
     public Text textElement2;
 
+    private float tiempoActual;
+
+    public string textValue3;
+    public Text textElement3;
+
+    public string textValue4;
+
+    public Text textElement4;
+    public string marchaActual;
+
+
+
+
     [SerializeField] private float velocidad;
+
+    [SerializeField] private float tiempoMaximo;
+
+    [SerializeField] private int puntoMeta;
 
     // Settings
     [SerializeField] private float motorForce, breakForce, maxSteerAngle;
@@ -172,7 +191,9 @@ public class CarController : MonoBehaviour
 
         if(serialPort.IsOpen)
         {
-            byte[] data1 = BitConverter.GetBytes(puntos);// send score to the FPGA
+            byte[] data1 = BitConverter.GetBytes(1);// send score to the FPGA
+            serialPort.Write(data1, 0, 1);
+            data1 = BitConverter.GetBytes(0);
             serialPort.Write(data1, 0, 1);
             serialPort.Close();
             string HexString = BitConverter.ToString(data1).Replace("-", " ");
@@ -183,18 +204,37 @@ public class CarController : MonoBehaviour
         }
     }
 
+    private void ganar ()
+    {
+        SceneManager.LoadScene("Win");
+    }
+
     void Update() 
     {
+        
+        tiempoActual += Time.deltaTime;
 
-        textValue = "Puntos: " + puntos + "\n" + " Fertilizante: " + fertilizante;
-        textElement.text = textValue;
-
-        if(meta)
+        if(tiempoActual >= tiempoMaximo)
         {
-            textValue = "Tarea Completada!!!!!";
-            textElement.text = textValue;
+            SceneManager.LoadScene("GameOver");
         }
 
+        textValue = "Puntos: " + puntos + " / " + puntoMeta + "\n" + " Fertilizante: " + fertilizante;
+        textElement.text = textValue;
+
+        textValue3 = tiempoActual.ToString("F0") + " / " + tiempoMaximo.ToString("F0") + " s";
+        textElement3.text = textValue3;
+
+        textValue4 = marchaActual;
+        textElement4.text = textValue4;
+
+        if(puntos >= puntoMeta || meta == true)
+        {
+            meta =true;
+            textValue3 = "Tarea Completada!!!!!";
+            textElement3.text = textValue3;
+            Invoke("Ganar", 3);
+        }
 
         if (!serialPort.IsOpen)
         {
@@ -222,32 +262,38 @@ public class CarController : MonoBehaviour
                 {
                     Debug.Log("Primera");
                     gear = 0.2f;
+                    marchaActual = "Primera";
                 }
                 else if(value == 0x02)
                 {
                     Debug.Log("Segunda");
                     gear = 0.5f;
+                    marchaActual = "Segunda";
                 }
                 else if(value == 0x03)
                 {
                     Debug.Log("Tercera");
                     gear = 0.7f;
+                    marchaActual = "Tercera";
                 }
                 else if(value == 0x04)
                 {
                     Debug.Log("Cuarta");
                     gear = 0.9f;
+                    marchaActual = "Cuarta";
                 }
                 else if(value == 0x05)
                 {
                     Debug.Log("Quinta");
                     gear = 1.5f;
+                    marchaActual = "Quinta";
                 }
                 else if(value == 0x06)
                 {
                     Debug.Log("Retroceso");
                     isBreaking = false;
                     vertgear = -1;
+                    
                 }
                 else if(value == 0x07)
                 {

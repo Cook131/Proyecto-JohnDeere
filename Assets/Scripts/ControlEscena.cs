@@ -11,5 +11,8 @@ public class ControlEscena : MonoBehaviour
         SceneManager.LoadScene(name);
     }
 
-   
+    public void Win(bool meta)
+    {
+        SceneManager.LoadScene("Win");
+    }
 }
